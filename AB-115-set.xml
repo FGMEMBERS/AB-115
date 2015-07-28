@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Grupo FGBr desenvolvimento -->
+<PropertyList>
+
+ <sim>
+
+  <description>Aeroboero AB-115</description>
+  <author>Unknow</author>
+  <status>alpha</status>
+
+  <flight-model>jsb</flight-model>
+  <aero>AB-115</aero>
+
+  <startup>
+   <splash-texture>Aircraft/AB-115/splash.png</splash-texture>
+  </startup>
+
+  <sound>
+   <path>Aircraft/AB-115/Sounds/sound.xml</path>
+  </sound>
+
+		<instrumentation>
+			<path>Aircraft/AB-115/Systems/instrumentation.xml</path>
+		</instrumentation>
+
+		<systems>
+			<electrical>
+				<path>Aircraft/AB-115/Systems/electrical.xml</path>
+			</electrical>
+		</systems>
+  
+  <virtual-cockpit archive="y">true</virtual-cockpit>
+
+  <model>
+   <path>Aircraft/AB-115/Models/AB-115.xml</path>
+      <livery>
+        <file type="string">default</file>
+      </livery>
+  </model>
+
+  <flaps>
+   <setting>0.000</setting>
+   <setting>0.2500</setting>
+   <setting>0.500</setting>
+   <setting>0.7500</setting>
+   <setting>1.000</setting>
+  </flaps>
+
+  <view n="0">
+   <name>Pilot</name>
+   <internal archive="y">true</internal>
+   <config>
+    <pitch-offset-deg>-9.6775</pitch-offset-deg>
+    <x-offset-m archive="y">0.00</x-offset-m>
+    <y-offset-m archive="y">0.44125</y-offset-m>
+    <z-offset-m archive="y">0.156</z-offset-m>
+   </config>
+  </view>
+  
+  <view n="1001">
+   <name>Instrutor</name>
+   <internal archive="y">true</internal>
+   <config>
+    <pitch-offset-deg>-5.4</pitch-offset-deg>
+    <x-offset-m archive="y">0.22</x-offset-m>
+    <y-offset-m archive="y">0.00</y-offset-m>
+    <z-offset-m archive="y">0.873</z-offset-m>
+   </config>
+  </view>
+
+  <help>
+   <title>Aero Boero AB-115</title>
+   <key>
+    <name>m (lower case m) </name>
+    <desc>Nose wheel steering</desc>
+   </key>
+   <key>
+    <name>Shift-Q</name>
+    <desc>fuel cutoff switch</desc>
+   </key>
+   <key>
+    <name>Shift-R </name>
+    <desc>Toggle reverse thrust</desc>
+   </key>
+   <key>
+    <name>d (lower case d) </name>
+    <desc>Deploy drag 'chute</desc>
+   </key>
+   <key>
+    <name>j (lower case j) </name>
+    <desc>Jettison drag 'chute</desc>
+   </key>
+  </help>
+
+  <menubar>
+  <default>
+    <menu n="10">
+      <label>AB-115</label>
+      <enabled type="bool">true</enabled>
+      <item>
+        <label>Select Livery</label>
+        <binding>
+          <command>nasal</command>
+          <script>aircraft.livery.dialog.toggle()</script>
+        </binding>
+      </item>
+      <item>
+        <label>Immatriculation</label>
+        <binding>
+          <command>nasal</command>
+          <script>ab115.immat_dialog.toggle()</script>
+        </binding>
+      </item>
+      <item>
+        <label>Lights</label>
+        <binding>
+          <command>property-toggle</command>
+          <script>controls/switches/lights</script>
+        </binding>
+      </item>    
+  </menu>
+  </default>
+  </menubar>
+
+ </sim>
+
+ <controls>
+  <flight>
+   <elevator-trim>0</elevator-trim><!-- catapult setting, use -0.19 for runway -->
+  </flight>
+  <lighting>
+   <instruments-norm>0.3</instruments-norm>
+   <landing type="double">1</landing>
+  </lighting>
+  <armament>
+    <loadout type="int">0</loadout> <!-- 0 is default, 1 is CAS -->
+   <gunsight>
+    <power-on type="bool">false</power-on>
+    <intensity type="double">0.3</intensity>
+   </gunsight>
+  </armament>
+  <gear>
+    <brake-parking type="double">1.0</brake-parking>
+  </gear>
+ </controls>
+
+ <input>
+   <keyboard>
+
+    <key n="82">
+     <name>Shift-R</name>
+     <desc>toggle reverser</desc>
+     <binding>
+       <command>property-toggle</command>
+       <property>fdm/jsbsim/systems/reverser/command</property>
+     </binding>
+    </key>
+
+    <key n="99">
+     <name>c</name>
+     <desc>toggle canopy</desc>
+     <binding>
+       <command>property-toggle</command>
+       <property>fdm/jsbsim/systems/canopy/command</property>
+     </binding>
+    </key>
+
+   <key n="100">
+     <name>d</name>
+     <desc>Deploy braking chute</desc>
+     <binding>
+      <condition>
+       <equals>
+         <property>controls/flight/chute_jettisoned</property>
+         <value>0</value>
+       </equals>
+      </condition>
+      <command>property-assign</command>
+      <property>fdm/jsbsim/systems/chute/deploy</property>
+      <value type="int">1</value>
+     </binding>
+    </key>
+
+    <key n="106">
+      <name>j</name>
+      <desc>jettison braking chute</desc>
+      <binding>
+       <command>property-assign</command>
+       <property>fdm/jsbsim/systems/chute/deploy</property>
+       <value type="int">0</value>
+      </binding>
+      <binding>
+       <command>property-assign</command>
+       <property>controls/flight/chute_jettisoned</property>
+       <value type="int">1</value>
+      </binding>
+    </key>
+
+    <key n="81">
+     <name>Shift-Q</name>
+     <desc>Fuel Cutoff Switch or Lever.</desc>
+     <binding>
+      <condition>
+       <property>/sim/input/selected/engine[0]</property>
+      </condition>
+      <command>property-toggle</command>
+      <property>/controls/engines/engine[0]/cutoff</property>
+     </binding>
+    </key>
+
+    <key n="109">
+     <name>m</name>
+     <desc>engage nose wheel steering</desc>
+     <binding>
+      <command>property-assign</command>
+      <property>fdm/jsbsim/systems/NWS/engaged</property>
+      <value>1</value> 
+     </binding>
+     <mod-up>
+       <binding>
+        <command>property-assign</command>
+        <property>fdm/jsbsim/systems/NWS/engaged</property>
+        <value>0</value> 
+       </binding>
+     </mod-up>
+    </key>
+
+    <key n="115">
+     <name>s</name>
+     <desc>Toggle starter valves.</desc>
+     <binding>
+       <command>property-toggle</command>
+       <property>controls/engines/engine[0]/starter</property>
+     </binding>
+     <mod-up>
+       <binding>
+         <command>null</command>
+       </binding>
+     </mod-up>
+    </key>
+
+    <key n="101">
+     <name>e (small e)</name>
+     <desc>Release selected stores</desc>
+      <binding>
+       <command>property-assign</command>
+       <property>fdm/jsbsim/systems/armament/release</property>
+       <value>1</value>
+      </binding>
+     </key>
+     
+   </keyboard>
+ </input>
+
+ <engines>
+  <engine n="0">
+    <running>true</running>
+  </engine>
+ </engines>
+<!--
+ <consumables>
+  <fuel>
+   <tank n="0">
+    <level-gal_us archive="y">1990</level-gal_us>
+   </tank>
+  </fuel>
+ </consumables>
+-->
+
+ <fdm>
+  <jsbsim>
+   <simulation>
+     <sim-time-sec>0</sim-time-sec>
+   </simulation>
+   <systems>
+    <holdback>
+      <holdback-cmd type="double">0</holdback-cmd>
+    </holdback>
+    <dump>
+      <armed type="double">0</armed>
+    </dump>
+    <radar>
+      <range type="int">40</range>
+    </radar>
+    <reverser>
+      <command type="double">0</command>
+    </reverser>
+    <canopy>
+      <command type="double">0</command>
+      <position type="double">0</position>
+    </canopy>
+    <wing_fold>
+      <command type="double">0</command>
+    </wing_fold>
+    <armament>
+      <station1>
+        <selected type="double">1</selected>
+      </station1>
+      <station2>
+        <selected type="double">0</selected>
+      </station2>
+      <station3>
+        <selected type="double">1</selected>
+      </station3>
+      <station4>
+        <selected type="double">0</selected>
+      </station4>
+      <station5>
+        <selected type="double">1</selected>
+      </station5>
+    </armament>
+   </systems> 
+  </jsbsim>
+ </fdm>
+
+
+ <instrumentation>
+  <marker-beacon>
+    <volume type="double" archive="y">0.0</volume>
+  </marker-beacon>
+  <radar>
+    <range type="int">40</range>
+  </radar>
+  <rdmi-mode type="int">0</rdmi-mode> <!-- 0=TAC, 1=VOR, 2=ADF -->
+ </instrumentation>
+
+ <systems>
+   <refuel>
+     <contact type="bool">false</contact>
+     <type>probe</type>
+   </refuel>
+ </systems>
+ 
+  <nasal>
+    <ab155>
+      <file>Aircraft/AB-115/Nasal/aeroboero.nas</file>
+      <file>Aircraft/AB-115/Nasal/liveries.nas</file>
+      <file>Aircraft/AB-115/Nasal/immat.nas</file>
+      <file>Aircraft/AB-115/Nasal/light.nas</file>
+    </ab155>
+  </nasal>
+  
+<payload>
+<!--
+	<weight>
+		<name type="string">Engine</name>
+		<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[0]"/>
+		<min-lb type="double">246.00</min-lb>
+		<max-lb type="double">246.00</max-lb>
+	</weight>
+-->
+	<weight>
+		<name type="string">Pilot</name>
+		<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[1]"/>
+		<min-lb type="double">0.0</min-lb>
+		<max-lb type="double">300.0</max-lb>
+	</weight>
+	<weight>
+		<name type="string">Passenger 1</name>
+		<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[2]"/>
+		<min-lb type="double">0.0</min-lb>
+		<max-lb type="double">300.0</max-lb>
+	</weight>
+	<weight>
+		<name type="string">Passenger 2</name>
+		<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[3]"/>
+		<min-lb type="double">0.0</min-lb>
+		<max-lb type="double">300.0</max-lb>
+	</weight>
+	</payload>
+
+
+</PropertyList>

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!--
+  File:     O-235-L2C.xml
+  Author:   ****
+
+O-235-L2C 115 hp (86 kW) at 2700 rpm, 
+specifications
+
+4-cylinder, horizontally-opposed, air-cooled piston engine
+Displacement: 233.3 cubic inches  (3.82 litres)
+Bore x stroke: 4.375 x 3.875 inches
+used by
+
+O-235-L2C
+    Power 115 hp (86 kW) at 2700 rpm, 
+    alternate ratings of 115 hp (86 kW) at 2700 rpm, 
+    112 hp (84 kW) at 2600 rpm, 
+    110 hp (82 kW) at 2550 rpm and 105 hp (78 kW) at 2400 rpm, 
+    dry weight 249 lb (113 kg) Similar to O-235-L2A except Slick magnetos and lower maximum continuous rating.
+    
+
+Reference TCDS E-252
+-->
+
+<piston_engine name="O-235-L2C">
+  <minmp unit="INHG">         10.5 </minmp>
+  <maxmp unit="INHG">         28.5 </maxmp>
+  <displacement unit="IN3"> 233.3 </displacement>
+  <maxhp>        115.00 </maxhp>
+  <cycles>         4.0 </cycles>
+  <idlerpm>      550.0 </idlerpm>
+  <maxrpm>      2700.0 </maxrpm>
+  <bore unit="IN"> 4.375 </bore>
+  <stroke unit="IN">3.875 </stroke>
+  <compression-ratio> 6.5 </compression-ratio>
+  <cylinders> 4 </cylinders>
+  <sparkfaildrop> 0.1 </sparkfaildrop>
+  <bsfc> 0.42 </bsfc>
+</piston_engine>

@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PropertyList>
+
+<path>AB-115_005.ac</path>
+
+
+
+<!-- Models -->
+
+  <!-- Panel and Interior -->
+  <model>
+    <name>Panel and Interior</name>
+    <path>Aircraft/AB-115/Models/Interior/panel.xml</path>
+    <offsets>
+      <x-m> 0.0 </x-m>
+      <y-m> 0.0 </y-m>
+      <z-m> 0.0 </z-m>
+    </offsets>
+  </model>
+
+
+  <!-- Pilote -->
+  <model>
+    <name>Pilote Student</name>
+    <path>Aircraft/AB-115/Models/Pilot/pilot2.xml</path>
+    <offsets>
+      <x-m> -0.432258 </x-m>
+      <y-m> 0.0 </y-m>
+      <z-m>-0.035634 </z-m>
+    </offsets>
+  </model>  
+  
+  <!-- Pilote Student -->
+  <model>
+    <name>Pilote</name>
+    <path>Aircraft/AB-115/Models/Pilot/pilot.xml</path>
+    <offsets>
+      <x-m> 0.48328 </x-m>
+      <y-m> 0.0 </y-m>
+      <z-m>-0.0645858 </z-m>
+    </offsets>
+  </model>
+
+  <animation>
+    <type>select</type>
+    <object-name>Pilote Student</object-name>
+    <condition>
+        <equals>
+          <property>sim/current-view/internal</property>
+          <value>false</value>
+        </equals>
+    </condition>
+  </animation>
+  
+  <!-- Immatriculation -->
+  <model>
+    <path>Aircraft/AB-115/Models/Immat/immat.xml</path>
+    <offsets>
+      <x-m> 0 </x-m>
+      <y-m> 0 </y-m>
+      <z-m> 0 </z-m>
+    </offsets>
+  </model>
+  
+<!-- ###### -->
+<!-- LIGHTS -->
+<!-- ###### -->
+
+<!-- NAVIGATION LIGHTS -->
+
+<model>
+	<path>Aircraft/AB-115/Models/Lights/rednav/redflash.xml</path>
+	<name>NavLight.Left</name>
+	<offsets>
+		<x-m>0.141666</x-m>
+		<y-m>-5.26695</y-m>
+		<z-m>0.722318</z-m>
+	</offsets>
+</model>
+<model>
+	<path>Aircraft/AB-115/Models/Lights/rednav/rednav.xml</path>
+	<name>NavLight.Left2</name>
+	<offsets>
+		<x-m>0.141666</x-m>
+		<y-m>-5.26695</y-m>
+		<z-m>0.722318</z-m>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/AB-115/Models/Lights/greennav/greenflash.xml</path>
+	<name>NavLight.Right</name>
+	<offsets>
+		<x-m>0.141666</x-m>
+		<y-m>5.26695</y-m>
+		<z-m>0.722318</z-m>
+	</offsets>
+</model>
+<model>
+	<path>Aircraft/AB-115/Models/Lights/greennav/greennav.xml</path>
+	<name>NavLight.Right2</name>
+	<offsets>
+		<x-m>0.141666</x-m>
+		<y-m>5.26695</y-m>
+		<z-m>0.722318</z-m>
+	</offsets>
+</model>
+
+
+
+<!-- Animations -->
+
+<!-- Helice -->
+    <animation>
+        <type>spin</type>
+		  <object-name>pas</object-name>
+        <property>engines/engine/thruster/rpm</property>
+        <center>
+            <x-m>-1.89948</x-m>
+            <y-m> 0.0</y-m>
+            <z-m>-0.00116146</z-m>
+        </center>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+    
+    <animation>
+        <type>spin</type>
+		  <object-name>propdisc</object-name>
+        <property>engines/engine/thruster/rpm</property>
+        <factor>0.5</factor>
+        <center>
+            <x-m>-1.89948</x-m>
+            <y-m> 0.0</y-m>
+            <z-m>-0.00116146</z-m>
+        </center>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+    
+    <animation>
+        <type>spin</type>
+		  <object-name>propblur</object-name>
+        <property>engines/engine/thruster/rpm</property>
+        <factor>-0.1</factor>
+        <center>
+            <x-m>-1.89948</x-m>
+            <y-m> 0.0</y-m>
+            <z-m>-0.00116146</z-m>
+        </center>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>propdisc</object-name>
+        <condition>
+            <greater-than>
+                <property>engines/engine[0]/thruster/rpm</property>
+                <value>600</value>
+            </greater-than>
+        </condition>
+    </animation>
+  
+    <animation>
+        <type>select</type>
+        <object-name>propblur</object-name>
+        <condition>
+        	<and>
+	            <greater-than>
+	                <property>engines/engine[0]/thruster/rpm</property>
+	                <value>500</value>
+	            </greater-than>
+	            <less-than>
+	                <property>engines/engine[0]/thruster/rpm</property>
+	                <value>2000</value>
+	            </less-than>
+            </and>
+        </condition>
+    </animation>
+  
+    <animation>
+        <type>select</type>
+			  <object-name>pas</object-name>
+        <condition>
+            <less-than>
+                <property>engines/engine[0]/thruster/rpm</property>
+                <value>650</value>
+            </less-than>
+        </condition>
+    </animation>
+     
+ 
+<!-- Bequilha -->
+    <animation>
+        <type>rotate</type>
+			<object-name>bequilha</object-name>
+			<object-name>bequilha_tire</object-name>
+			<object-name>tire_T</object-name>
+        <property>controls/flight/rudder</property>
+        <interpolation>
+            <entry>
+                <ind>-1</ind>
+                <dep>-50</dep>
+            </entry>
+            <entry>
+                <ind>1</ind>
+                <dep>50</dep>
+            </entry>
+        </interpolation>
+        <center>
+            <x-m>3.94674</x-m>
+            <y-m> 0.0</y-m>
+            <z-m>-0.0182585</z-m>
+        </center>
+        <axis>
+            <x>0</x>
+            <y>0</y>
+            <z>1</z>
+        </axis>
+    </animation>
+  
+<!-- ###### -->
+<!-- Rudder -->
+<!-- ###### -->
+ <animation>
+  <type>rotate</type>
+	<object-name>Rudder</object-name>
+  <property>controls/flight/rudder</property>
+  <factor>24</factor>
+  <offset-deg>0</offset-deg>   
+        <axis>
+		     <x1-m> 4.83117</x1-m>
+		     <y1-m> 0.0</y1-m>
+		     <z1-m>1.52744</z1-m>
+		     <x2-m> 4.29941</x2-m>
+		     <y2-m> 0.0</y2-m>
+		     <z2-m>0.232638</z2-m>
+        </axis>
+ </animation>
+ 
+<!-- ########## -->
+<!-- Elevators -->
+<!-- ########## -->
+ <animation>
+  <type>rotate</type>
+  <object-name>elevator_R</object-name>
+  <object-name>trim_elevator_R</object-name>
+  <property>controls/flight/elevator</property>
+  <factor>31</factor>
+  <offset-deg>0</offset-deg>   
+	  <axis>
+	     <x1-m>4.3863</x1-m>
+	     <y1-m>0.027737</y1-m>
+	     <z1-m>0.301341</z1-m>
+	     <x2-m>4.3863</x2-m>
+	     <y2-m>1.28939</y2-m>
+	     <z2-m>0.301341</z2-m>
+	  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>elevator_L</object-name>
+  <object-name>trim_elevator_L</object-name>
+  <property>controls/flight/elevator</property>
+  <factor>-31</factor>
+  <offset-deg>0</offset-deg>   
+	  <axis>
+	     <x1-m>4.3863</x1-m>
+	     <y1-m>-0.027737</y1-m>
+	     <z1-m>0.301341</z1-m>
+	     <x2-m>4.3863</x2-m>
+	     <y2-m>-1.28939</y2-m>
+	     <z2-m>0.301341</z2-m>
+	  </axis>
+ </animation>   
+ 
+<!-- ############## -->
+<!-- Elevators Trim -->
+<!-- ############## -->
+ <animation>
+  <type>rotate</type>
+  <object-name>trim_elevator_R</object-name>
+  <property>controls/flight/elevator-trim</property>
+  <factor>25</factor>
+  <offset-deg>0</offset-deg>   
+	  <axis>
+	     <x1-m>4.65584</x1-m>
+	     <y1-m>0.286137</y1-m>
+	     <z1-m>0.30134</z1-m>
+	     <x2-m>4.59909</x2-m>
+	     <y2-m>0.887166</y2-m>
+	     <z2-m>0.301341</z2-m>
+	  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>trim_elevator_L</object-name>
+  <property>controls/flight/elevator-trim</property>
+  <factor>-25</factor>
+  <offset-deg>0</offset-deg>   
+	  <axis>
+	     <x1-m>4.65584</x1-m>
+	     <y1-m>-0.286137</y1-m>
+	     <z1-m>0.30134</z1-m>
+	     <x2-m>4.59909</x2-m>
+	     <y2-m>-0.887166</y2-m>
+	     <z2-m>0.301341</z2-m>
+	  </axis>
+ </animation>   
+ 
+ 
+ 
+<!-- ######## -->
+<!-- Ailerons -->
+<!-- ######## -->
+<!-- Externo -->
+  <animation>
+  <type>rotate</type>
+  <object-name>aileron_L</object-name>
+  <property>controls/flight/aileron</property>
+  <factor>-23</factor>
+  <axis>
+     <x1-m> 0.880552</x1-m>
+     <y1-m>-2.76813</y1-m>
+     <z1-m>0.692563</z1-m>
+     <x2-m> 0.880552</x2-m>
+     <y2-m>-4.95906</y2-m>
+     <z2-m>0.750831</z2-m>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>aileron_R</object-name>
+  <property>controls/flight/aileron</property>
+  <factor>-23</factor>
+  <axis>
+     <x1-m> 0.880552</x1-m>
+     <y1-m> 2.76813</y1-m>
+     <z1-m>0.692563</z1-m>
+     <x2-m> 0.880552</x2-m>
+     <y2-m> 4.95906</y2-m>
+     <z2-m>0.750831</z2-m>
+  </axis>
+ </animation>  
+ 
+<!-- ##### -->
+<!-- Flaps -->
+<!-- ##### -->
+
+ <animation>
+  <type>rotate</type>
+  <object-name>flap_L</object-name>
+  <property>surface-positions/flap-pos-norm</property>
+  <factor>-45</factor>
+  <axis>
+     <x1-m> 0.880552</x1-m>
+     <y1-m>-0.489365</y1-m>
+     <z1-m>0.653367</z1-m>
+     <x2-m> 0.880552</x2-m>
+     <y2-m>-2.76813</y2-m>
+     <z2-m>0.692563</z2-m>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>flap_R</object-name>
+  <property>surface-positions/flap-pos-norm</property>
+  <factor>45</factor>
+  <axis>
+     <x1-m> 0.880552</x1-m>
+     <y1-m> 0.489365</y1-m>
+     <z1-m>0.653367</z1-m>
+     <x2-m> 0.880552</x2-m>
+     <y2-m> 2.76813</y2-m>
+     <z2-m>0.692563</z2-m>
+  </axis>
+ </animation>   
+ 
+ 
+<!-- ####################### --> 
+<!-- Trem de pouso dianteiro -->
+<!-- ####################### --> 
+
+<!-- rodas rodando -->
+<animation>
+	<type>spin</type>
+	<object-name>tire_L</object-name>
+	<property>fdm/jsbsim/gear/unit[0]/wheel-speed-fps</property>
+	<factor>40</factor>
+	<center>
+		<x-m>-0.34621</x-m>
+		<y-m>0</y-m>
+		<z-m>-1.11943</z-m>
+	</center>
+	<axis>
+		<x>0</x>
+		<y>1</y>
+		<z>0</z>
+	</axis>
+</animation>
+
+<animation>
+	<type>spin</type>
+	<object-name>tire_R</object-name>
+	<property>fdm/jsbsim/gear/unit[1]/wheel-speed-fps</property>
+	<factor>40</factor>
+	<center>
+		<x-m>-0.34621</x-m>
+		<y-m>0</y-m>
+		<z-m>-1.11943</z-m>
+	</center>
+	<axis>
+		<x>0</x>
+		<y>1</y>
+		<z>0</z>
+	</axis>
+</animation>
+
+<animation>
+	<type>spin</type>
+	<object-name>tire_T</object-name>
+	<property>fdm/jsbsim/gear/unit[2]/wheel-speed-fps</property>
+	<factor>60</factor>
+	<center>
+		<x-m>4.55838</x-m>
+		<y-m>0</y-m>
+		<z-m>-0.258072</z-m>
+	</center>
+	<axis>
+		<x>0</x>
+		<y>-1</y>
+		<z>0</z>
+	</axis>
+</animation>
+
+
+
+  
+</PropertyList>

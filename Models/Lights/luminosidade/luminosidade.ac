@@ -1,0 +1,67 @@
+AC3Db
+MATERIAL "lighthalo.001" rgb 1 1 1  amb 1 1 1  emis 1 1 1  spec 1 1 1  shi 128  trans 0.6
+OBJECT world
+kids 3
+OBJECT poly
+name "RHLND.spot"
+loc 0.0578976 2.75384 0
+data 8
+Mesh.951
+texture "light_spot.png"
+crease 80.000000
+numvert 4
+-35.4316 -2.56803 -25.2259
+-0.0768719 -2.56803 -8.84734
+-0.0768719 -2.56803 0.112084
+-35.4316 -2.56803 -5.57162
+numsurf 1
+SURF 0x20
+mat 0
+refs 4
+3 0 1
+2 1 1
+1 1 0
+0 0 0
+kids 0
+OBJECT poly
+name "LHLND.spot"
+loc 0.0578976 2.75384 0
+data 8
+Mesh.952
+texture "light_spot.png"
+crease 80.000000
+numvert 4
+-35.4316 -2.56803 25.2259
+-0.0768719 -2.56803 8.84734
+-0.0768719 -2.56803 0.112084
+-35.4316 -2.56803 5.57162
+numsurf 1
+SURF 0x20
+mat 0
+refs 4
+3 0 1
+2 1 1
+1 1 0
+0 0 0
+kids 0
+OBJECT poly
+name "CTRLND.spot"
+loc 0.0578976 2.75384 0
+data 8
+Mesh.953
+texture "light_spot.png"
+crease 80.000000
+numvert 4
+-43.4574 -2.45884 -4.41626
+-8.7073 -2.45884 -4.41626
+-8.7073 -2.45884 4.41626
+-43.4574 -2.45884 4.41626
+numsurf 1
+SURF 0x20
+mat 0
+refs 4
+2 1 0
+3 0 0
+0 0 1
+1 1 1
+kids 0

@@ -1,0 +1,841 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PropertyList>
+
+<path>interior_panel.ac</path>
+
+<!-- Panel instruments -->
+
+  <!-- AI
+  <model>
+    <path>Aircraft/AB-115/Models/Interior/Instruments/ai/ai.xml</path>
+    <offsets>
+      <x-m> -0.56109 </x-m>
+      <y-m> -0.311578 </y-m>
+      <z-m>0.155697 </z-m>
+    </offsets>
+  </model>  
+ -->
+ 
+  <!-- IAS -->
+  <model>
+    <path>Aircraft/AB-115/Models/Interior/Instruments/asi/asi.xml</path>
+    <offsets>
+      <x-m> -0.609441 </x-m>
+      <y-m> -0.185806 </y-m>
+      <z-m>0.31245 </z-m>
+    </offsets>
+  </model>  
+
+  <!-- Altimeter -->
+  <model>
+    <path>Aircraft/AB-115/Models/Interior/Instruments/alt/alt.xml</path>
+    <offsets>
+      <x-m> -0.609441 </x-m>
+      <y-m> -0.09127 </y-m>
+      <z-m> 0.31245 </z-m>
+    </offsets>
+  </model>  
+  
+  <!-- Vertical Speed -->
+  <model>
+    <path>Aircraft/AB-115/Models/Interior/Instruments/vsi/vsi.xml</path>
+    <offsets>
+      <x-m> -0.6009441 </x-m>
+      <y-m> 0.0 </y-m>
+      <z-m> 0.31245 </z-m>
+    </offsets>
+  </model>  
+
+  <!-- Turn Indicator -->
+  <model>
+    <path>Aircraft/AB-115/Models/Interior/Instruments/turn/turn.xml</path>
+    <offsets>
+      <x-m> -0.609441 </x-m>
+      <y-m> 0.0912895 </y-m>
+      <z-m> 0.31245 </z-m>
+    </offsets>
+  </model>  
+  
+  <!-- Blank -->
+  <!--
+  <model>
+    <path>Aircraft/AB-115/Models/Interior/Instruments/alt/alt.xml</path>
+    <offsets>
+      <x-m> -0.609441 </x-m>
+      <y-m> -0.332288 </y-m>
+      <z-m>0.228061 </z-m>
+    </offsets>
+  </model>  
+  -->
+  
+  <!-- Tachometer -->
+  <model>
+    <path>Aircraft/AB-115/Models/Interior/Instruments/rpm/rpm.xml</path>
+    <offsets>
+      <x-m> -0.609441 </x-m>
+      <y-m> -0.245334 </y-m>
+      <z-m>0.228061 </z-m>
+    </offsets>
+  </model>  
+  
+  <!-- Blank , Manometro -->
+  <model>
+    <path>Aircraft/AB-115/Models/Interior/Instruments/man/man.xml</path>
+    <offsets>
+      <x-m> -0.609441 </x-m>
+      <y-m> -0.155512 </y-m>
+      <z-m>0.228061 </z-m>
+    </offsets>
+  </model>  
+ 
+  <!-- Oil Pressure -->
+  <model>
+    <path>Aircraft/AB-115/Models/Interior/Instruments/oilpress/oilpress.xml</path>
+    <offsets>
+      <x-m> -0.609441 </x-m>
+      <y-m> -0.0849307 </y-m>
+      <z-m>0.228061 </z-m>
+    </offsets>
+  </model>  
+  
+  <!-- Oil Temperature -->
+  <model>
+    <path>Aircraft/AB-115/Models/Interior/Instruments/oiltemp/oiltemp.xml</path>
+    <offsets>
+      <x-m> -0.609441 </x-m>
+      <y-m> -0.0172261 </y-m>
+      <z-m>0.228061 </z-m>
+    </offsets>
+  </model>  
+  
+  <!-- Ampere AMP -->
+  <model>
+    <path>Aircraft/AB-115/Models/Interior/Instruments/ammeter/ammeter.xml</path>
+    <offsets>
+      <x-m> -0.6009441 </x-m>
+      <y-m> 0.04893 </y-m>
+      <z-m> 0.228061 </z-m>
+    </offsets>
+  </model>  
+       
+  <!-- Blank -->
+  <!--
+  <model>
+    <path>Aircraft/AB-115/Models/Interior/Instruments/alt/alt.xml</path>
+    <offsets>
+      <x-m> -0.609441 </x-m>
+      <y-m> 0.119511 </y-m>
+      <z-m>0.228061 </z-m>
+    </offsets>
+  </model>  
+  -->
+  
+  <!-- KT70 -->
+  <model>
+    <path>Aircraft/AB-115/Models/Interior/Instruments/kt70/kt70.xml</path>
+    <offsets>
+      <x-m> -0.609441 </x-m>
+      <y-m> 0.250859 </y-m>
+      <z-m> 0.203112 </z-m>
+    </offsets>
+  </model>  
+  
+  <!-- KY196 -->
+  <model>
+    <path>Aircraft/AB-115/Models/Interior/Instruments/ky196/ky196-comm1.xml</path>
+    <offsets>
+      <x-m> -0.609441 </x-m>
+      <y-m> 0.250859 </y-m>
+      <z-m> 0.241168 </z-m>
+    </offsets>
+  </model>  
+  
+
+<!-- ################################# -->
+<!-- Animacoes dos elementos do painel -->  
+<!-- ################################# -->
+
+<!-- Mixture -->
+<animation>
+ <type>pick</type>
+  <object-name>MixtureGroup</object-name>
+  <object-name>Mixture</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>true</repeatable>
+   <interval-sec>0.1</interval-sec>
+	<binding>
+		 <command>property-adjust</command>
+		 <property>/controls/engines/engine[0]/mixture</property>
+		 <step>0.05</step>
+		 <min>0</min>
+		 <max>1</max>
+	</binding>
+  </action>
+</animation>
+
+<animation>
+ <type>pick</type>
+  <object-name>MixtureGroup</object-name>
+  <object-name>Mixture</object-name>
+  <action>
+   <button>1</button>
+   <repeatable>true</repeatable>
+   <interval-sec>0.1</interval-sec>
+	<binding>
+		 <command>property-adjust</command>
+		 <property>/controls/engines/engine[0]/mixture</property>
+		 <step>-0.05</step>
+		 <min>0</min>
+		 <max>1</max>
+	</binding>
+  </action>
+</animation>
+
+    <animation>
+        <type>translate</type>
+		  <object-name>MixtureGroup</object-name>
+		  <object-name>Mixture</object-name>
+        <property>controls/engines/engine[0]/mixture</property>
+        <interpolation>
+            <entry>
+                <ind>0</ind>
+                <dep>0</dep>
+            </entry>
+            <entry>
+                <ind>1</ind>
+                <dep>-0.05</dep>
+            </entry>
+        </interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+    </animation>
+
+
+<!-- Battery -->
+<animation>
+ <type>pick</type>
+  <object-name>lever_battery</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <interval-sec>0.2</interval-sec>
+	<binding>
+		 <command>property-toggle</command>
+		 <property>controls/electric/battery-switch</property>
+	</binding>
+  </action>
+</animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>lever_battery</object-name>
+        <property>controls/electric/battery-switch</property>
+        <interpolation>
+            <entry>
+                <ind>0</ind>
+                <dep>5</dep>
+            </entry>
+            <entry>
+                <ind>1</ind>
+                <dep>-5</dep>
+            </entry>
+        </interpolation>
+        <center>
+            <x-m>-0.635281</x-m>
+            <y-m>-0.305724</y-m>
+            <z-m>0.301177</z-m>
+        </center>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+<!-- Battery light -->
+	<animation>
+		<type>material</type>
+		<condition>
+			<property>controls/electric/battery-switch</property>
+		</condition>
+        <object-name>light_battery</object-name>
+		<emission>
+			<red>0.90</red>
+			<green>0.0</green>
+			<blue>0.0</blue>
+			<factor-prop>controls/electric/battery-switch</factor-prop>
+		</emission>
+	</animation>
+
+<!-- Alternator -->
+<animation>
+ <type>pick</type>
+  <object-name>lever_alt</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <interval-sec>0.2</interval-sec>
+	<binding>
+		 <command>property-toggle</command>
+		 <property>/controls/electric/engine/generator</property>
+		 <property>/controls/electric/engine/bus-tie</property>
+	</binding>
+  </action>
+</animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>lever_alt</object-name>
+        <property>controls/electric/engine/generator</property>
+        <interpolation>
+            <entry>
+                <ind>0</ind>
+                <dep>5</dep>
+            </entry>
+            <entry>
+                <ind>1</ind>
+                <dep>-5</dep>
+            </entry>
+        </interpolation>
+        <center>
+            <x-m>-0.635281</x-m>
+            <y-m>-0.305724</y-m>
+            <z-m>0.301177</z-m>
+        </center>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+
+<!-- Magneto 0 -->
+<animation>
+ <type>pick</type>
+  <object-name>lever_mag0</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <interval-sec>0.2</interval-sec>
+			<binding>
+				<command>nasal</command>
+				<script>
+					var control_magnetos = props.globals.getNode("controls/engines/engine[0]/magnetos",1) ;
+					var control_magneto1 = props.globals.getNode("controls/engines/engine[0]/magneto[0]",1) ;
+					
+					if ( control_magneto1.getValue() == 0 ) {
+						control_magneto1.setValue(1);
+						if ( control_magnetos.getValue() == 0 ) {
+							control_magnetos.setValue(1);
+						} elsif ( control_magnetos.getValue() == 2 ) {
+							control_magnetos.setValue(3);
+						} 
+					} else {
+						control_magneto1.setValue(0);
+						if ( control_magnetos.getValue() == 1 ) {
+							control_magnetos.setValue(0);
+						} elsif ( control_magnetos.getValue() == 3 ) {
+							control_magnetos.setValue(2);
+						}					
+					};					
+				</script>
+			</binding>
+  </action>
+</animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>lever_mag0</object-name>
+        <property>controls/engines/engine[0]/magneto[0]</property>
+        <interpolation>
+            <entry>
+                <ind>0</ind>
+                <dep>5</dep>
+            </entry>
+            <entry>
+                <ind>1</ind>
+                <dep>-5</dep>
+            </entry>
+        </interpolation>
+        <center>
+            <x-m>-0.635281</x-m>
+            <y-m>-0.305724</y-m>
+            <z-m>0.301177</z-m>
+        </center>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+<!-- Magneto 1 -->
+<animation>
+ <type>pick</type>
+  <object-name>lever_mag1</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <interval-sec>0.2</interval-sec>
+			<binding>
+				<command>nasal</command>
+				<script>
+					var control_magnetos = props.globals.getNode("controls/engines/engine[0]/magnetos",1) ;
+					var control_magneto1 = props.globals.getNode("controls/engines/engine[0]/magneto[1]",1) ;
+					
+					if ( control_magneto1.getValue() == 0 ) {
+						control_magneto1.setValue(1);
+						if ( control_magnetos.getValue() == 0 ) {
+							control_magnetos.setValue(2);
+						} elsif ( control_magnetos.getValue() == 1 ) {
+							control_magnetos.setValue(3);
+						} 
+					} else {
+						control_magneto1.setValue(0);
+						if ( control_magnetos.getValue() == 2 ) {
+							control_magnetos.setValue(0);
+						} elsif ( control_magnetos.getValue() == 3 ) {
+							control_magnetos.setValue(1);
+						}					
+					};					
+				</script>
+			</binding>
+  </action>
+</animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>lever_mag1</object-name>
+        <property>controls/engines/engine[0]/magneto[1]</property>
+        <interpolation>
+            <entry>
+                <ind>0</ind>
+                <dep>5</dep>
+            </entry>
+            <entry>
+                <ind>1</ind>
+                <dep>-5</dep>
+            </entry>
+        </interpolation>
+        <center>
+            <x-m>-0.635281</x-m>
+            <y-m>-0.305724</y-m>
+            <z-m>0.301177</z-m>
+        </center>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+<!-- Reostato da cabine -->
+<animation>
+ <type>pick</type>
+  <object-name>reostato</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>true</repeatable>
+   <interval-sec>0.1</interval-sec>
+	<binding>
+		 <command>property-adjust</command>
+		 <property>controls/lighting/dome-norm</property>
+		 <step>0.05</step>
+		 <min>0</min>
+		 <max>1</max>
+	</binding>
+  </action>
+</animation>
+
+<animation>
+ <type>pick</type>
+  <object-name>reostato</object-name>
+  <action>
+   <button>1</button>
+   <repeatable>true</repeatable>
+   <interval-sec>0.1</interval-sec>
+	<binding>
+		 <command>property-adjust</command>
+		 <property>controls/lighting/dome-norm</property>
+		 <step>-0.05</step>
+		 <min>0</min>
+		 <max>1</max>
+	</binding>
+  </action>
+</animation>
+ 
+    <animation>
+        <type>rotate</type>
+        <object-name>reostato</object-name>
+        <property>controls/engines/engine[0]/magneto[1]</property>
+        <interpolation>
+            <entry>
+                <ind>0</ind>
+                <dep>0</dep>
+            </entry>
+            <entry>
+                <ind>1</ind>
+                <dep>180</dep>
+            </entry>
+        </interpolation>
+        <center>
+            <x-m>-0.614683</x-m>
+            <y-m> 0.230346</y-m>
+            <z-m>0.328233</z-m>
+        </center>
+        <axis>
+            <x>0</x>
+            <y>0</y>
+            <z>1</z>
+        </axis>
+    </animation>
+    
+<!-- Partida -->
+<animation>
+ <type>pick</type>
+  <object-name>but_starter</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <interval-sec>0.2</interval-sec>
+	<binding>
+		 <command>property-toggle</command>
+		 <property>controls/engines/engine[0]/starter</property>
+	</binding>
+  </action>
+</animation>
+
+    <animation>
+        <type>translate</type>
+		  <object-name>but_starter</object-name>
+        <property>controls/engines/engine[0]/starter</property>
+        <interpolation>
+            <entry>
+                <ind>0</ind>
+                <dep>0</dep>
+            </entry>
+            <entry>
+                <ind>1</ind>
+                <dep>-0.02</dep>
+            </entry>
+        </interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+    </animation>
+
+<!-- Cowl Flap Position Control -->
+<animation>
+ <type>pick</type>
+  <object-name>cowl_flaps_ctrl</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>true</repeatable>
+   <interval-sec>0.1</interval-sec>
+	<binding>
+		 <command>property-adjust</command>
+		 <property>controls/engines/engine[0]/cowl-flaps-norm</property>
+		 <step>0.05</step>
+		 <min>0</min>
+		 <max>1</max>
+	</binding>
+  </action>
+</animation>
+
+<animation>
+ <type>pick</type>
+  <object-name>cowl_flaps_ctrl</object-name>
+  <action>
+   <button>1</button>
+   <repeatable>true</repeatable>
+   <interval-sec>0.1</interval-sec>
+	<binding>
+		 <command>property-adjust</command>
+		 <property>controls/engines/engine[0]/cowl-flaps-norm</property>
+		 <step>-0.05</step>
+		 <min>0</min>
+		 <max>1</max>
+	</binding>
+  </action>
+</animation>
+
+    <animation>
+        <type>translate</type>
+		  <object-name>cowl_flaps_ctrl</object-name>
+        <property>controls/engines/engine[0]/cowl-flaps-norm</property>
+        <interpolation>
+            <entry>
+                <ind>0</ind>
+                <dep>0</dep>
+            </entry>
+            <entry>
+                <ind>1</ind>
+                <dep>-0.02</dep>
+            </entry>
+        </interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+    </animation>
+    
+<!-- Cabin Heater -->   
+<animation>
+ <type>pick</type>
+  <object-name>cabin_heat_ctrl</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <interval-sec>0.2</interval-sec>
+	<binding>
+		 <command>property-toggle</command>
+		 <property>controls/anti-ice/cabin-heat</property>
+	</binding>
+  </action>
+</animation>
+
+    <animation>
+        <type>translate</type>
+		  <object-name>cabin_heat_ctrl</object-name>
+        <property>controls/anti-ice/cabin-heat</property>
+        <interpolation>
+            <entry>
+                <ind>0</ind>
+                <dep>0</dep>
+            </entry>
+            <entry>
+                <ind>1</ind>
+                <dep>-0.02</dep>
+            </entry>
+        </interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+    </animation>
+    
+<!-- Switch landing light -->
+<animation>
+ <type>pick</type>
+  <object-name>lever_landing_lights</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <interval-sec>0.2</interval-sec>
+	<binding>
+		 <command>property-toggle</command>
+		 <property>controls/lighting/landing-lights</property>
+	</binding>
+  </action>
+</animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>lever_landing_lights</object-name>
+        <property>controls/lighting/landing-lights</property>
+        <interpolation>
+            <entry>
+                <ind>0</ind>
+                <dep>5</dep>
+            </entry>
+            <entry>
+                <ind>1</ind>
+                <dep>-5</dep>
+            </entry>
+        </interpolation>
+        <center>
+            <x-m>-0.635281</x-m>
+            <y-m> 0.342513</y-m>
+            <z-m>0.210769</z-m>
+        </center>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+<!-- Switch nav and cabin lights -->
+<animation>
+ <type>pick</type>
+  <object-name>lever_nav_lights</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <interval-sec>0.2</interval-sec>
+	<binding>
+		 <command>property-toggle</command>
+		 <property>controls/lighting/nav-lights</property>
+	</binding>
+	<binding>
+		 <command>property-toggle</command>
+		 <property>controls/lighting/cabin</property>
+	</binding>
+  </action>
+</animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>lever_nav_lights</object-name>
+        <property>controls/lighting/nav-lights</property>
+        <interpolation>
+            <entry>
+                <ind>0</ind>
+                <dep>5</dep>
+            </entry>
+            <entry>
+                <ind>1</ind>
+                <dep>-5</dep>
+            </entry>
+        </interpolation>
+        <center>
+            <x-m>-0.635281</x-m>
+            <y-m> 0.342513</y-m>
+            <z-m>0.210769</z-m>
+        </center>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+   
+<!-- Magnetic compass -->
+ <animation>
+  <type>noshadow</type>
+  <object-name>Ring</object-name>
+  <object-name>Compass</object-name>
+  <object-name>Ring</object-name>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Ring</object-name>
+  <property>/instrumentation/magnetic-compass/indicated-heading-deg</property>
+  <axis>
+   <x>0.0</x>
+   <y>0.0</y>
+   <z>1.0</z>
+  </axis>
+  <center>
+   <x-m>-0.51495</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.466348</z-m>
+  </center>
+ </animation>
+
+<!-- Rudder pedals -->
+
+    <animation>
+        <type>translate</type>
+		  <object-name>RpedalTop</object-name>
+		  <object-name>Rpedal</object-name>
+        <property>controls/flight/rudder</property>
+        <interpolation>
+            <entry>
+                <ind>-1</ind>
+                <dep>0.05</dep>
+            </entry>
+            <entry>
+                <ind>1</ind>
+                <dep>-0.05</dep>
+            </entry>
+        </interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+    </animation>
+    
+    <animation>
+        <type>translate</type>
+		  <object-name>LpedalTop</object-name>
+		  <object-name>Lpedal</object-name>
+        <property>controls/flight/rudder</property>
+        <interpolation>
+            <entry>
+                <ind>-1</ind>
+                <dep>-0.05</dep>
+            </entry>
+            <entry>
+                <ind>1</ind>
+                <dep>0.05</dep>
+            </entry>
+        </interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+    </animation>
+
+    
+    <animation>
+        <type>rotate</type>
+		  <object-name>RpedalTop</object-name>
+		  <object-name>Rpedal</object-name>
+        <property>controls/gear/brake-right</property>
+        <interpolation>
+            <entry>
+                <ind>0</ind>
+                <dep>0</dep>
+            </entry>
+            <entry>
+                <ind>1</ind>
+                <dep>-5</dep>
+            </entry>
+        </interpolation>
+        <center>
+            <x-m>-0.766277</x-m>
+            <y-m> 0.0</y-m>
+            <z-m>-0.463049</z-m>
+        </center>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+  
+    <animation>
+        <type>rotate</type>
+		  <object-name>LpedalTop</object-name>
+		  <object-name>Lpedal</object-name>
+        <property>controls/gear/brake-left</property>
+        <interpolation>
+            <entry>
+                <ind>0</ind>
+                <dep>0</dep>
+            </entry>
+            <entry>
+                <ind>1</ind>
+                <dep>-5</dep>
+            </entry>
+        </interpolation>
+        <center>
+            <x-m>-0.766277</x-m>
+            <y-m> 0.0</y-m>
+            <z-m>-0.463049</z-m>
+        </center>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+    
+
+      
+       
+</PropertyList>
+
