@@ -6,14 +6,17 @@
  <sim>
 
   <description>Aeroboero AB-115</description>
-  <author>Unknow</author>
+  <author>FGBR (FlightGear Brazil)</author>
   <status>alpha</status>
 
   <flight-model>jsb</flight-model>
   <aero>AB-115</aero>
 
   <startup>
-   <splash-texture>Aircraft/AB-115/splash.png</splash-texture>
+   <splash-texture>Aircraft/AB-115/Splash/splash1.png</splash-texture>
+   <splash-texture>Aircraft/AB-115/Splash/splash2.png</splash-texture>
+   <splash-texture>Aircraft/AB-115/Splash/splash3.png</splash-texture>
+   <splash-texture>Aircraft/AB-115/Splash/splash4.png</splash-texture>
   </startup>
 
   <sound>
